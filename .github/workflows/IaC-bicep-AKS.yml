@@ -65,23 +65,6 @@ jobs:
             Write-Error "$featureName NOT registered"
           }
 
-          $featureName='EnableOIDCIssuerPreview'
-          write-output "-- $featureName"
-          $feature = $aksfeatures |  Where-Object {$_.name -like "*$featureName"}
-          $feature.properties.state
-          if ($feature.properties.state -ne 'Registered') {
-            Write-Output $feature
-            Write-Error "$featureName NOT registered"
-          }
-
-          $featureName='AKS-AzureDefender'
-          write-output "-- $featureName"
-          $feature = $aksfeatures |  Where-Object {$_.name -like "*$featureName"}
-          $feature.properties.state
-          if ($feature.properties.state -ne 'Registered') {
-            Write-Output $feature
-            Write-Error "$featureName NOT registered"
-          }
 
   deployment:
     runs-on: ubuntu-latest
